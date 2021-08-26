@@ -19,6 +19,10 @@ const WelcomeScreen = ({navigation}) => {
     navigation.navigate('SignUp');
   };
 
+  //Go Home page
+  const goHomePage = () => {
+    navigation.navigate('Home');
+  };
   return (
     <ScrollView style={styles.container}>
       <View style={styles.userContainer}>
@@ -83,7 +87,7 @@ const WelcomeScreen = ({navigation}) => {
         </Text>
         <Text style={styles.descText1}>Tetris with</Text>
         <Text style={styles.descText2}>Friends & Neighbours</Text>
-        <TouchableOpacity onPress={() => goSignInPage()}>
+        <TouchableOpacity onPress={() => goHomePage()}>
           <LinearGradient
             style={styles.signInButton}
             start={{x: 0, y: 0}}

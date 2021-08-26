@@ -23,6 +23,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import ContestScreen from './src/screens/ContestScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import ForgotScreen from './src/screens/ForgotScreen';
@@ -82,6 +83,11 @@ const App = () => {
           options={{headerShown: false}}
         />
 
+        <Stack.Screen
+          name="Contest"
+          component={ContestScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="Message"
           component={MessageScreen}

@@ -33,7 +33,7 @@ import ModalDropdown from 'react-native-modal-dropdown';
 import {styles} from './style/Home';
 import {windowWidth} from '../config/config';
 
-import {BorderButton} from '../components/Button';
+import {BorderButton, EmojiButton} from '../components/Button';
 import {ScreenWidth} from 'react-native-elements/dist/helpers';
 
 const HomeScreen = ({navigation}) => {
@@ -41,54 +41,19 @@ const HomeScreen = ({navigation}) => {
     navigation.navigate('Profile', {type: type});
   };
 
+  const goContestPage = () => {
+    navigation.navigate('Contest');
+  };
   return (
     <View style={styles.container}>
       <View style={styles.topHeader}>
-        <TouchableOpacity>
-          <SvgXml width="24" height="24" xml={addSvg} />
-        </TouchableOpacity>
         <View style={{flexDirection: 'row'}}>
           <Image
-            width="20"
-            height="24"
             style={styles.logoImg}
             source={require('../assets/logo.png')}
           />
           <Text style={styles.logoBigName}>DASHBOARD</Text>
-          {/* <Text style={styles.logoSmallName}>.SURF</Text> */}
         </View>
-        <View style={styles.topRightHeader}>
-          <TouchableOpacity>
-            <LinearGradient
-              style={styles.topRightCircle}
-              colors={['rgba(255, 81, 47, 1)', 'rgba(240, 152, 25, 1)']}>
-              <SvgXml width="16" height="16" xml={hrSvg1} />
-            </LinearGradient>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <SvgXml
-              width="16"
-              height="16"
-              style={{marginLeft: 4}}
-              xml={hrSvg2}
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
-      <View style={styles.searchContainer}>
-        <TextInput
-          style={styles.searchBar}
-          placeholder="Search"
-          placeholderTextColor="#595D68"></TextInput>
-        <TouchableOpacity>
-          <LinearGradient
-            style={styles.searchRightCircle}
-            start={{x: 0, y: 0}}
-            end={{x: 0, y: 1}}
-            colors={['rgba(240, 152, 25, 1)', 'rgba(255, 81, 47, 1)']}>
-            <SvgXml width="24" height="24" xml={cameraSvg} />
-          </LinearGradient>
-        </TouchableOpacity>
       </View>
 
       <ScrollView
@@ -97,7 +62,9 @@ const HomeScreen = ({navigation}) => {
           alignItems: 'center',
         }}>
         <ScrollView horizontal style={styles.userContainer}>
-          <TouchableOpacity style={styles.userItemContainer}>
+          <TouchableOpacity
+            style={styles.userItemContainer}
+            onPress={() => goContestPage()}>
             <LinearGradient
               style={styles.userAvatarContainerWithBorder}
               start={{x: 0.3, y: 0}}
@@ -207,6 +174,30 @@ const HomeScreen = ({navigation}) => {
           </TouchableOpacity>
         </ScrollView>
         <View style={styles.storyContainer}>
+          <View
+            style={{
+              width: '100%',
+              justifyContent: 'space-between',
+              height: 50,
+            }}>
+            <LinearGradient
+              style={styles.searchBack}
+              colors={['#1baee3', 'rgba(240, 152, 25, 1)']}
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 0}}>
+              <TextInput
+                placeholder={'Search contest...'}
+                placeholderTextColor="#aaaaaa"
+                style={styles.searchInput}></TextInput>
+              <EmojiButton
+                emoji={'🔎'}
+                backgroundColor={'#ff397f77'}
+                width={40}
+                height={40}
+                style={{marginLeft: -41, marginTop: 2.5}}
+              />
+            </LinearGradient>
+          </View>
           <LinearGradient
             style={styles.contestInfo}
             colors={['#1baee3', 'rgba(240, 152, 25, 1)']}>
