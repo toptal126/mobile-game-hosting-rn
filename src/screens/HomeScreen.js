@@ -9,32 +9,20 @@ import {
   TextInput,
 } from 'react-native';
 import {SvgXml} from 'react-native-svg';
-import {SliderBox} from 'react-native-image-slider-box';
 import LinearGradient from 'react-native-linear-gradient';
 import TextTicker from 'react-native-text-ticker';
-
-import addSvg from '../assets/home/svg/header_add.svg';
-import hrSvg1 from '../assets/home/svg/header_right1.svg';
-import hrSvg2 from '../assets/home/svg/header_right2.svg';
-import plusSvg from '../assets/home/svg/plus.svg';
-import cameraSvg from '../assets/home/svg/camera.svg';
-import dot3Svg from '../assets/home/svg/dot3.svg';
-import heartSvg from '../assets/home/svg/heart.svg';
-import msgSvg from '../assets/home/svg/message_on.svg';
-import gpsSvg from '../assets/home/svg/gps.svg';
-import shareSvg from '../assets/home/svg/share.svg';
 
 import winner1Svg from '../assets/home/svg/winner_1.svg';
 import winner2Svg from '../assets/home/svg/winner_2.svg';
 import winner3Svg from '../assets/home/svg/winner_3.svg';
-
-import ModalDropdown from 'react-native-modal-dropdown';
 
 import {styles} from './style/Home';
 import {windowWidth} from '../config/config';
 
 import {BorderButton, EmojiButton} from '../components/Button';
 import {ScreenWidth} from 'react-native-elements/dist/helpers';
+
+import {SideMenu} from '../SideMenu';
 
 const HomeScreen = ({navigation}) => {
   const goProfilePage = type => {
@@ -43,6 +31,9 @@ const HomeScreen = ({navigation}) => {
 
   const goContestPage = () => {
     navigation.navigate('Contest');
+  };
+  const goBattlePage = () => {
+    navigation.navigate('Battle');
   };
   return (
     <View style={styles.container}>
@@ -54,6 +45,7 @@ const HomeScreen = ({navigation}) => {
           />
           <Text style={styles.logoBigName}>DASHBOARD</Text>
         </View>
+        <SideMenu navigation={navigation} />
       </View>
 
       <ScrollView
@@ -281,6 +273,7 @@ const HomeScreen = ({navigation}) => {
             style={styles.battleInfo}
             colors={['#1baee3', '#f2295b']}>
             <TouchableOpacity
+              onPress={() => goBattlePage()}
               activeOpacity={0.7}
               style={{
                 backgroundColor: '#2F3542',

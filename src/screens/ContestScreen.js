@@ -1,37 +1,29 @@
 import React from 'react';
-import {
-  View,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  Image,
-} from 'react-native';
+import {View, ScrollView, Text, TouchableOpacity, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {SvgXml} from 'react-native-svg';
 import arSvg from '../assets/welcome/arrow-left.svg';
-import emailSvg from '../assets/welcome/email.svg';
-import lockSvg from '../assets/welcome/mdi_lock.svg';
-import eyeSvg from '../assets/welcome/eye.svg';
 import {styles} from './style/Contest';
 import {BorderButton, EmojiButton} from '../components/Button';
 import {ScreenWidth} from 'react-native-elements/dist/helpers';
 
 import TextTicker from 'react-native-text-ticker';
-import {windowHeight, windowWidth} from '../config/config';
+
+import {SideMenu} from '../SideMenu';
 
 const ContestScreen = ({navigation}) => {
-  //Go Home page
-  const goHome = () => {
-    navigation.navigate('Home');
-  };
-
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      start={{x: 1, y: 0}}
+      end={{x: 0, y: 0}}
+      colors={['#8744f4', '#6167ef']}
+      style={styles.container}>
       <View style={styles.topHeader}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <SvgXml width="24" height="24" xml={arSvg} />
         </TouchableOpacity>
+
+        <SideMenu navigation={navigation} />
       </View>
 
       <ScrollView
@@ -130,10 +122,112 @@ const ContestScreen = ({navigation}) => {
           </View>
         </View>
         <View style={styles.leaderBoardContainer}>
-          <Text>Leaderboard</Text>
+          <TouchableOpacity style={styles.leaderBoardHeader}>
+            <Text style={styles.leaderBoardHeader1}>Username</Text>
+            <Text style={styles.leaderBoardHeader2}>Rank</Text>
+            <Text style={styles.leaderBoardHeader3}>Score</Text>
+          </TouchableOpacity>
+          <ScrollView nestedScrollEnabled>
+            <TouchableOpacity style={styles.leaderBoardRow}>
+              <View style={{flexDirection: 'row', width: '35%'}}>
+                <Image
+                  style={styles.playerImage}
+                  source={require('../assets/home/user/p0.jpg')}></Image>
+                <Text style={[styles.leaderBoardRow1, {fontSize: 18}]}>
+                  Harry Potter
+                </Text>
+              </View>
+              <View style={styles.leaderBoardHeader2}>
+                <Image
+                  style={styles.medalImage}
+                  source={require('../assets/home/images/medal2_1.png')}></Image>
+              </View>
+              <Text style={styles.leaderBoardHeader3}>2357</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.leaderBoardRow}>
+              <View style={{flexDirection: 'row', width: '35%'}}>
+                <Image
+                  style={styles.playerImage}
+                  source={require('../assets/home/user/p1.png')}></Image>
+                <Text style={[styles.leaderBoardRow1, {fontSize: 18}]}>
+                  Turtle Ninja
+                </Text>
+              </View>
+              <View style={styles.leaderBoardRow2}>
+                <Image
+                  style={styles.medalImage}
+                  source={require('../assets/home/images/medal2_2.png')}></Image>
+              </View>
+              <Text style={styles.leaderBoardHeader3}>2103</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.leaderBoardRow}>
+              <View style={{flexDirection: 'row', width: '35%'}}>
+                <Image
+                  style={styles.playerImage}
+                  source={require('../assets/home/user/vu2.png')}></Image>
+                <Text style={[styles.leaderBoardRow1, {fontSize: 18}]}>
+                  Doom Din
+                </Text>
+              </View>
+              <View style={styles.leaderBoardRow2}>
+                <Image
+                  style={styles.medalImage}
+                  source={require('../assets/home/images/medal2_3.png')}></Image>
+              </View>
+              <Text style={styles.leaderBoardHeader3}>1876</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.leaderBoardRow}>
+              <View style={{flexDirection: 'row', width: '35%'}}>
+                <Image
+                  style={styles.playerImage}
+                  source={require('../assets/home/user/p3.png')}></Image>
+                <Text style={[styles.leaderBoardRow1, {fontSize: 18}]}>
+                  Sniper
+                </Text>
+              </View>
+              <Text style={styles.leaderBoardRow2}>4</Text>
+              <Text style={styles.leaderBoardHeader3}>1683</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.leaderBoardRow}>
+              <View style={{flexDirection: 'row', width: '35%'}}>
+                <Image
+                  style={styles.playerImage}
+                  source={require('../assets/home/user/p3_u.png')}></Image>
+                <Text style={[styles.leaderBoardRow1, {fontSize: 18}]}>
+                  Snoopy
+                </Text>
+              </View>
+              <Text style={styles.leaderBoardRow2}>5</Text>
+              <Text style={styles.leaderBoardHeader3}>1409</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.leaderBoardRow}>
+              <View style={{flexDirection: 'row', width: '35%'}}>
+                <Image
+                  style={styles.playerImage}
+                  source={require('../assets/home/user/p4.png')}></Image>
+                <Text style={[styles.leaderBoardRow1, {fontSize: 18}]}>
+                  Hiccup
+                </Text>
+              </View>
+              <Text style={styles.leaderBoardRow2}>6</Text>
+              <Text style={styles.leaderBoardHeader3}>1356</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.leaderBoardRow}>
+              <View style={{flexDirection: 'row', width: '35%'}}>
+                <Image
+                  style={styles.playerImage}
+                  source={require('../assets/home/user/vu3.png')}></Image>
+                <Text style={[styles.leaderBoardRow1, {fontSize: 18}]}>
+                  Rookie
+                </Text>
+              </View>
+              <Text style={styles.leaderBoardRow2}>7</Text>
+              <Text style={styles.leaderBoardHeader3}>1235</Text>
+            </TouchableOpacity>
+          </ScrollView>
         </View>
       </ScrollView>
-    </View>
+    </LinearGradient>
   );
 };
 

@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {ScreenWidth} from 'react-native-elements/dist/helpers';
 
 import {windowWidth, windowHeight} from '../../config/config';
 
@@ -33,9 +34,10 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   footerContainer: {
-    marginHorizontal: 10,
-    marginVertical: 10,
+    position: 'absolute',
+    bottom: 10,
     flexDirection: 'row',
+    width: '100%',
     justifyContent: 'space-around',
   },
   contestInfoDetail: {
@@ -43,7 +45,6 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     marginVertical: 5,
-    marginHorizontal: 10,
     fontFamily: 'OpenSans-Regular',
   },
   storyAuthor: {
@@ -51,7 +52,14 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     fontFamily: 'OpenSans-SemiBold',
-    textAlign: 'right',
+    textAlign: 'center',
+  },
+  playerUserName: {
+    fontSize: windowWidth / 25,
+    fontWeight: 'bold',
+    color: 'white',
+    fontFamily: 'OpenSans-SemiBold',
+    textAlign: 'center',
   },
   storyAuthorDesc: {
     fontSize: 14,
@@ -61,13 +69,12 @@ export const styles = StyleSheet.create({
     textAlign: 'right',
   },
   playerImage: {
-    width: 60,
-    height: 60,
-    marginTop: 8,
-    marginLeft: -10,
-    marginRight: 5,
+    width: ScreenWidth / 4,
+    height: ScreenWidth / 4,
+    marginTop: 10,
+    borderWidth: 5,
     overflow: 'hidden',
-    borderRadius: 50,
+    borderRadius: ScreenWidth / 4,
     borderColor: '#ffffff',
     borderWidth: 2,
   },
@@ -82,12 +89,16 @@ export const styles = StyleSheet.create({
     marginLeft: 8,
     marginTop: -10,
     marginRight: -10,
+    overflow: 'hidden',
+    borderRadius: 50,
+    borderColor: '#ffffff',
+    borderWidth: 2,
   },
-  contestBackImage: {
+  battleBackImage: {
     position: 'absolute',
     width: '100%',
     height: '100%',
-    opacity: 0.1,
+    opacity: 0.7,
   },
   storyHeader: {
     flexDirection: 'row',
@@ -111,14 +122,10 @@ export const styles = StyleSheet.create({
     marginRight: 10,
     flexDirection: 'row',
   },
-  contestInfo: {
-    paddingVertical: '1%',
-    marginBottom: 20,
-  },
   battleInfo: {
-    borderRadius: 30,
-    padding: 3,
-    marginVertical: 10,
+    paddingVertical: '1%',
+    width: '100%',
+    height: windowWidth / 1.6,
   },
 
   marquee: {
@@ -163,31 +170,23 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
-  leaderBoardContainer: {
-    width: windowWidth,
-    paddingHorizontal: '2%',
-    height: windowHeight / 1.5,
-    // borderBottomWidth: 1,
-  },
   leaderBoardHeader: {
-    height: 80,
-    // width: '80%',
-    backgroundColor: '#ffffff66',
+    height: windowWidth / 5,
+    width: '100%',
+    backgroundColor: '#ffffff33',
     paddingHorizontal: '5%',
-    marginBottom: 2,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    borderBottomWidth: 5,
+    borderColor: 'white',
   },
   leaderBoardHeader1: {
-    textAlignVertical: 'center',
-    textAlign: 'left',
-    color: 'white',
-    fontSize: 20,
     width: '35%',
+    flexDirection: 'column',
   },
-  leaderBoardRow1: {
+  playerInfo: {
     textAlignVertical: 'center',
-    textAlign: 'left',
+    textAlign: 'center',
     color: 'white',
     fontSize: 20,
   },
@@ -197,31 +196,14 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     color: 'white',
     fontSize: 20,
-    width: '20%',
-  },
-  leaderBoardRow2: {
-    textAlignVertical: 'center',
-    textAlign: 'center',
-    alignItems: 'center',
-    color: 'white',
-    fontSize: 25,
-    width: '20%',
+    width: '30%',
   },
   leaderBoardHeader3: {
     textAlignVertical: 'center',
-    textAlign: 'right',
+    textAlign: 'center',
     color: 'white',
     fontSize: 20,
     width: '35%',
-  },
-  leaderBoardRow: {
-    height: 75,
-    // width: '80%',
-    backgroundColor: '#ffffff33',
-    paddingHorizontal: '5%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    borderBottomWidth: 1,
-    borderColor: '#ffffffaa',
+    flexDirection: 'column',
   },
 });

@@ -24,6 +24,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import ContestScreen from './src/screens/ContestScreen';
+import BattleScreen from './src/screens/BattleScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import ForgotScreen from './src/screens/ForgotScreen';
@@ -35,6 +36,8 @@ import ProfileScreen from './src/screens/ProfileScreen';
 import EditProfileScreen from './src/screens/EditProfileScreen';
 
 const Stack = createStackNavigator();
+
+import {MenuContext} from 'react-native-popup-menu';
 
 const App = () => {
   return (
@@ -89,6 +92,11 @@ const App = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
+          name="Battle"
+          component={BattleScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="Message"
           component={MessageScreen}
           options={{
@@ -120,7 +128,7 @@ const App = () => {
           name="Profile"
           component={ProfileScreen}
           options={{
-            title: '',
+            headerShown: false,
           }}
         />
         <Stack.Screen

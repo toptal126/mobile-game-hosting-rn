@@ -40,10 +40,14 @@ export const styles = StyleSheet.create({
     textAlign: 'right',
   },
   playerImage: {
-    width: 100,
-    height: 100,
+    width: windowWidth / 5,
+    height: windowWidth / 5,
     marginTop: 10,
     borderWidth: 5,
+    overflow: 'hidden',
+    borderRadius: windowWidth / 5,
+    borderColor: '#ffffff',
+    borderWidth: 2,
   },
   hostImage: {
     width: 60,
@@ -51,6 +55,10 @@ export const styles = StyleSheet.create({
     marginLeft: 8,
     marginTop: -10,
     marginRight: -10,
+    overflow: 'hidden',
+    borderRadius: 50,
+    borderColor: '#ffffff',
+    borderWidth: 2,
   },
   contestBackImage: {
     position: 'absolute',
@@ -251,7 +259,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#242A38',
   },
   logoBigName: {
-    fontSize: windowWidth / 15,
+    fontSize: windowWidth / 20,
     fontFamily: 'OpenSans-Bold',
     color: 'white',
     marginLeft: 8,
@@ -264,7 +272,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 25,
+    // marginTop: 25,
   },
   logoImg: {
     width: windowWidth / 10,
