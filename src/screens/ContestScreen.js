@@ -12,6 +12,10 @@ import TextTicker from 'react-native-text-ticker';
 import {SideMenu} from '../SideMenu';
 
 const ContestScreen = ({navigation}) => {
+  const goProfilePage = type => {
+    navigation.navigate('Profile', {type});
+  };
+
   return (
     <LinearGradient
       start={{x: 1, y: 0}}

@@ -372,7 +372,7 @@ const ProfileScreen = ({route, navigation}) => {
           <Animated.View
             style={{alignItems: 'center', opacity: headerTitleOpacity}}>
             <Text style={styles.userProfileName}>Livia Vetrovs</Text>
-            <Text style={styles.userJob}>UI/UX Designer at CloudES</Text>
+            <Text style={styles.userJob}>Shop Owner at Ixios</Text>
           </Animated.View>
 
           {type == 2 && (

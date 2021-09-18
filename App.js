@@ -34,10 +34,14 @@ import PersonalChatScreen from './src/screens/PersonalChatScreen';
 import GroupChatScreen from './src/screens/GroupChatScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import EditProfileScreen from './src/screens/EditProfileScreen';
+import WordPuzzleScreen from './src/screens/WordPuzzleScreen';
 
 const Stack = createStackNavigator();
 
-import {MenuContext} from 'react-native-popup-menu';
+if (!window.location) {
+  // App is running in simulator
+  window.navigator.userAgent = 'ReactNative';
+}
 
 const App = () => {
   return (
@@ -89,6 +93,11 @@ const App = () => {
         <Stack.Screen
           name="Contest"
           component={ContestScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="WordPuzzle"
+          component={WordPuzzleScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen

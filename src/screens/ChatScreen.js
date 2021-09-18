@@ -28,6 +28,24 @@ import profileSvg from '../assets/common/profile.svg';
 
 import DialogInput from 'react-native-dialog-input';
 
+import {io} from 'socket.io-client';
+
+if (!window.location) {
+  // App is running in simulator
+  window.navigator.userAgent = 'ReactNative';
+}
+
+const onReceiveMessage = data => {
+  console.log(data);
+};
+
+const socket = io('http://192.168.113.102:3000', {transports: ['websocket']});
+
+socket.on('chat message', onReceiveMessage);
+
+console.log('render', Date.now());
+// // This must be below your `window.navigator` hack above
+
 const ChatScreen = () => {
   const navigation = useNavigation();
 
@@ -39,6 +57,15 @@ const ChatScreen = () => {
     navigation.navigate('Profile', {type: 1});
   };
 
+  const inviteNewFriend = newName => {
+    let data = {
+      email: 'test@gamil.com',
+      message: newName,
+    };
+    socket.emit('chat message', data);
+    setDialogVisible(false);
+  };
+
   const [dialogVisible, setDialogVisible] = useState(false);
 
   const InviteDialog = () => {
@@ -48,10 +75,7 @@ const ChatScreen = () => {
         title={'Invite New Friend'}
         message={'Input user name of your new friend.'}
         hintInput={'example: harrypotter'}
-        submitInput={inputText => {
-          console.log(inputText);
-          setDialogVisible(false);
-        }}
+        submitInput={inputText => inviteNewFriend(inputText)}
         closeDialog={() => {
           setDialogVisible(false);
         }}></DialogInput>

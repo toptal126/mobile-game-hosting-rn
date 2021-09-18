@@ -115,12 +115,12 @@ const WelcomeScreen = ({navigation}) => {
         </View>
 
         <Text style={styles.footer}>
-          <Text style={styles.footerText1}>A product of </Text>
+          <Text style={styles.footerText1}>Supported by </Text>
           <Image
             style={styles.footerImg}
             source={require('../assets/welcome/footer.png')}
           />
-          <Text style={styles.footerText1}> CloudES</Text>
+          <Text style={styles.footerText1}> ABDUL</Text>
         </Text>
       </View>
     </ScrollView>

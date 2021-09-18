@@ -35,6 +35,12 @@ const HomeScreen = ({navigation}) => {
   const goBattlePage = () => {
     navigation.navigate('Battle');
   };
+
+  const joinContest = () => {
+    // console.log('joinContest');
+    navigation.navigate('WordPuzzle');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.topHeader}>
@@ -209,7 +215,7 @@ const HomeScreen = ({navigation}) => {
                   onPress={() => goProfilePage(2)}>
                   <View>
                     <Text style={styles.storyAuthor}>John Doe</Text>
-                    <Text style={styles.storyAuthorDesc}>Wonder Share</Text>
+                    <Text style={styles.storyAuthorDesc}>Superman</Text>
                   </View>
                   <Image
                     style={styles.hostImage}
@@ -265,6 +271,7 @@ const HomeScreen = ({navigation}) => {
                   color={'white'}
                   width={ScreenWidth / 4}
                   height={ScreenWidth / 10}
+                  onPress={joinContest}
                 />
               </View>
             </TouchableOpacity>
